@@ -3,6 +3,11 @@ import { useState, useEffect } from 'react'
 import Signup from './pages/auth/Signup'
 import Login from './pages/auth/Login'
 import Members from './pages/members/Members'
+import EmployeeList from "./pages/employees/EmployeeList";
+
+import EmployeeDetails from "./pages/employees/EmployeeDetails";
+
+import EditEmployee from "./pages/employees/EditEmployee";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -22,6 +27,34 @@ function App() {
           element={currentUser? <Members /> : <Navigate to="/login" />}
         />
         <Route path="/" element={<Navigate to="/signup" />} />
+
+        <Route
+  path="/employees"
+  element={
+    currentUser
+      ? <EmployeeList />
+      : <Navigate to="/login" />
+  }
+/>
+
+<Route
+  path="/employees/:id"
+  element={
+    currentUser
+      ? <EmployeeDetails />
+      : <Navigate to="/login" />
+  }
+/>
+
+<Route
+  path="/employees/edit/:id"
+  element={
+    currentUser
+      ? <EditEmployee />
+      : <Navigate to="/login" />
+  }
+/>
+
       </Routes>
     </BrowserRouter>
   )

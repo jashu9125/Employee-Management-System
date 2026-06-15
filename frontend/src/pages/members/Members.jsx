@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMembers } from "../../api/userApi";
+import Navbar from "../../components/layout/Navbar";
 import "../../App.css";
 
 function Members() {
@@ -22,7 +23,7 @@ function Members() {
   };
 
   const handleDeactivate = (user) => {
-    // Only Admin can be deactivated here
+
     if (user.role?.toLowerCase() !== "admin") {
       alert("User cannot be deactivated");
       return;
@@ -49,7 +50,14 @@ function Members() {
   }
 
   return (
+    
     <div className="members-container">
+      <>
+           <Navbar />
+
+           Existing Members Code
+
+      </>
       <h1>Members</h1>
 
       {members.length === 0 ? (

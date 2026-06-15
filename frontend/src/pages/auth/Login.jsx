@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FiMail, FiLock } from "react-icons/fi";
 import { TbLogin2 } from "react-icons/tb";
 import { loginUser } from "../../api/userApi";
+// import EmployeeList from "../employees/EmployeeList";
 import "../../App.css";
 
 function Login({ setCurrentUser }) {
@@ -31,7 +32,8 @@ function Login({ setCurrentUser }) {
 
       alert("Login Successful");
 
-      navigate("/members");
+      // navigate("/members");
+      navigate("/employees");
     } catch (error) {
       alert(error.message);
     }
@@ -87,7 +89,9 @@ function Login({ setCurrentUser }) {
               required
             />
           </div>
-
+              <div>
+                <p>
+                Forgot Password </p></div>
           <button
             type="submit"
             className="btn-primary"
