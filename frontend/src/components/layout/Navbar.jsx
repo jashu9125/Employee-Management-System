@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Menu,
   Bell,
@@ -8,17 +9,26 @@ import {
   Building2,
   ClipboardList
 } from "lucide-react";
+import { Settings } from "lucide-react";
 
 const Navbar = ({ onMenuClick }) => {
+
+  const navigate = useNavigate();
+
+  const currentUser = JSON.parse(
+    localStorage.getItem("currentUser")
+  );
+
   return (
     <header className="navbar">
+
       <div className="navbar-left">
 
         <button
           className="menu-btn"
           onClick={onMenuClick}
         >
-          <Menu size={28} />
+          <Menu size={24} />
         </button>
 
         <div className="logo-section">
@@ -28,6 +38,7 @@ const Navbar = ({ onMenuClick }) => {
 
           <div>
             <h2>EEMS</h2>
+
             <p>
               Enterprise Employee
               Management
@@ -35,20 +46,27 @@ const Navbar = ({ onMenuClick }) => {
           </div>
         </div>
 
-        <span className="nav-active">
-          Employees
-        </span>
-
-        <button className="company-btn">
-          Company A
-        </button>
       </div>
 
       <div className="navbar-center">
 
-        <div className="nav-link">
+        <div
+          className="nav-link"
+          onClick={() =>
+            navigate("/dashboard")
+          }
+        >
+          Dashboard
+        </div>
+
+        <div
+          className="nav-link"
+          onClick={() =>
+            navigate("/employees")
+          }
+        >
           <Users size={18} />
-          Team
+          Employees
         </div>
 
         <div className="nav-link">
@@ -66,6 +84,17 @@ const Navbar = ({ onMenuClick }) => {
           Audit Logs
         </div>
 
+       {currentUser?.role?.toLowerCase() === "admin" && (
+  <div
+    className="nav-link"
+    onClick={() =>
+      navigate("/settings/subscription")
+    }
+  >
+    <Settings size={18} />
+    Settings
+  </div>
+)}
       </div>
 
       <div className="navbar-right">
@@ -81,14 +110,19 @@ const Navbar = ({ onMenuClick }) => {
         <div className="profile-box">
 
           <div className="profile-avatar">
-            D
+            {currentUser?.name
+              ?.charAt(0)
+              ?.toUpperCase()}
           </div>
 
-          <span>das</span>
+          <span>
+            {currentUser?.name}
+          </span>
 
         </div>
 
       </div>
+
     </header>
   );
 };

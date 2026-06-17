@@ -1,12 +1,14 @@
 from fastapi import APIRouter
 
+from config.db import SessionLocal
+
+
 router = APIRouter(
     prefix="/api/users",
     tags=["Users"]
 )
 
 users = []
-
 
 @router.post("/signup")
 def signup(user: dict):
@@ -17,7 +19,6 @@ def signup(user: dict):
         "message": "Signup Successful",
         "user": user
     }
-
 
 @router.post("/login")
 def login(user: dict):

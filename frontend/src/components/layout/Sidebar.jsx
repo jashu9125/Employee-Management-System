@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = ({
-  isOpen,
-  onClose
-}) => {
+const Sidebar = ({ isOpen, onClose }) => {
+  const currentUser = JSON.parse(
+    localStorage.getItem("currentUser")
+  );
+
   return (
     <>
       {isOpen && (
@@ -20,18 +21,21 @@ const Sidebar = ({
         }`}
       >
         <div className="sidebar-header">
-
           <h3>Menu</h3>
 
-          <button
-            onClick={onClose}
-          >
+          <button onClick={onClose}>
             ✕
           </button>
-
         </div>
 
         <nav>
+
+          <Link
+            to="/dashboard"
+            onClick={onClose}
+          >
+            Dashboard
+          </Link>
 
           <Link
             to="/employees"
@@ -46,6 +50,15 @@ const Sidebar = ({
           >
             Members
           </Link>
+
+          {currentUser?.role === "admin" && (
+            <Link
+              to="/settings/subscription"
+              onClick={onClose}
+            >
+              Subscription
+            </Link>
+          )}
 
         </nav>
       </aside>

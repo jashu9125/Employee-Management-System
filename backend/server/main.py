@@ -14,6 +14,7 @@ from routes.employeeRoutes import (
     router as employee_router
 )
 
+
 app = FastAPI(
     title="Employee Management System"
 )

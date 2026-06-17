@@ -15,29 +15,33 @@ function Login({ setCurrentUser }) {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const user = await loginUser(
-        form.email,
-        form.password
-      );
+  try {
+    const user = await loginUser(
+      form.email,
+      form.password
+    );
 
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify(user)
-      );
+    localStorage.setItem(
+      "currentUser",
+      JSON.stringify(user)
+    );
 
-      setCurrentUser(user);
+    setCurrentUser(user);
 
-      alert("Login Successful");
+    alert("Login Successful");
 
-      // navigate("/members");
-      navigate("/employees");
-    } catch (error) {
-      alert(error.message);
+    if (user.role?.toLowerCase() === "admin") {
+      navigate("/settings/subscription");
+    } else {
+      navigate("/dashboard");
     }
-  };
+
+  } catch (error) {
+    alert(error.message);
+  }
+};
 
   return (
     <div className="login-wrapper">

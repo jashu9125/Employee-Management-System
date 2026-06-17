@@ -27,19 +27,24 @@ export default function Signup() {
     }
 
     try {
-      await signupUser({
-        name: form.name,
-        email: form.email,
-        company: form.company,
-        role: form.role,
-        password: form.password,
-      });
+  const response = await signupUser({
+    name: form.name,
+    email: form.email,
+    company: form.company,
+    role: form.role,
+    password: form.password,
+  });
 
-      alert("Signup successful! Please login.");
-      navigate("/login");
-    } catch (error) {
-      alert(error.message || "Signup failed");
-    }
+  localStorage.setItem(
+    "currentUser",
+    JSON.stringify(response.user)
+  );
+
+  navigate("/dashboard");
+}
+catch (error) {
+  alert(error.message || "Signup failed");
+}
   };
 
   return (
