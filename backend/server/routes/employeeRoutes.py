@@ -114,3 +114,13 @@ def delete_employee(
     return {
         "message": "Employee Deleted Successfully"
     }
+
+@router.get("/count")
+def employee_count(
+    db: Session =
+    Depends(get_db)
+):
+    return {
+        "count":
+        db.query(Employee).count()
+    }

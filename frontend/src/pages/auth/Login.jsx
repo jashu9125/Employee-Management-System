@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FiMail, FiLock } from "react-icons/fi";
 import { TbLogin2 } from "react-icons/tb";
 import { loginUser } from "../../api/userApi";
-// import EmployeeList from "../employees/EmployeeList";
+import axios from "axios";
 import "../../App.css";
 
 function Login({ setCurrentUser }) {
@@ -15,47 +15,76 @@ function Login({ setCurrentUser }) {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const user = await loginUser(
-      form.email,
-      form.password
-    );
+    try {
+      const response = await loginUser(
+        form.email,
+        form.password
+      );
 
-    localStorage.setItem(
-      "currentUser",
-      JSON.stringify(user)
-    );
+      const user = response.user;
 
-    setCurrentUser(user);
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+      );
 
-    alert("Login Successful");
+      setCurrentUser(user);
 
-    if (user.role?.toLowerCase() === "admin") {
-      navigate("/settings/subscription");
-    } else {
-      navigate("/dashboard");
+      alert("Login Successful");
+
+      if (
+        user.role?.toLowerCase() ===
+        "admin"
+      ) {
+        navigate("/dashboard");
+      } else {
+        navigate("/dashboard");
+      }
+
+    } catch (error) {
+
+      try {
+
+        await axios.post(
+          "http://localhost:8000/api/users/failed-login",
+          {
+            email: form.email
+          }
+        );
+
+      } catch (err) {
+        console.log(
+          "Failed Login Alert Error",
+          err
+        );
+      }
+
+      alert(
+        error.message ||
+        "Invalid Credentials"
+      );
     }
-
-  } catch (error) {
-    alert(error.message);
-  }
-};
+  };
 
   return (
     <div className="login-wrapper">
+
       <div className="login-card">
+
         <div className="login-logo">
           <TbLogin2 />
         </div>
 
         <h2>Welcome Back</h2>
+
         <p className="login-sub">
           Login to access EEMS
         </p>
 
         <form onSubmit={handleLogin}>
+
           <label>Email</label>
 
           <div className="input-group">
@@ -93,15 +122,18 @@ function Login({ setCurrentUser }) {
               required
             />
           </div>
-              <div>
-                <p>
-                Forgot Password </p></div>
+
+          <div>
+            <p>Forgot Password</p>
+          </div>
+
           <button
             type="submit"
             className="btn-primary"
           >
             Login
           </button>
+
         </form>
 
         <p className="login-footer">
@@ -110,7 +142,9 @@ function Login({ setCurrentUser }) {
             Sign Up
           </Link>
         </p>
+
       </div>
+
     </div>
   );
 }

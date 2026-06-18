@@ -17,25 +17,53 @@ import {
 
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
-// import { getSubscription } from "../../api/billingApi";
+import { getSubscription } from "../../api/billingApi";
 
 function Dashboard() {
-  // const [subscription, setSubscription] = useState(null);
-  const [subscription] = useState({
-  analytics_access: true,
-  plan: "ENTERPRISE",
-});
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [subscription, setSubscription] =
+    useState(null);
+
+  const [sidebarOpen, setSidebarOpen] =
+    useState(false);
 
   const currentUser = JSON.parse(
     localStorage.getItem("currentUser")
   );
 
+  useEffect(() => {
+
+    const loadSubscription = async () => {
+
+      try {
+
+        if (!currentUser) return;
+
+        const data =
+          await getSubscription(
+            currentUser.company
+          );
+
+        setSubscription(data);
+
+      } catch (error) {
+
+        console.error(
+          "Subscription Load Error:",
+          error
+        );
+
+      }
+    };
+
+    loadSubscription();
+
+  }, []);
+
   if (!currentUser) {
     return <h2>Please Login</h2>;
   }
 
-  // Sample Data
   const stats = {
     totalEmployees: 23,
     activeEmployees: 17,
@@ -68,7 +96,11 @@ function Dashboard() {
     { name: "On Leave", value: 4 },
   ];
 
-  const COLORS = ["#10b981", "#ef4444", "#f59e0b"];
+  const COLORS = [
+    "#10b981",
+    "#ef4444",
+    "#f59e0b",
+  ];
 
   const attendanceData = [
     {
@@ -163,13 +195,19 @@ function Dashboard() {
 
       <div className="dashboard-container">
 
-        {/* Header */}
         <div className="dashboard-header">
+
           <div>
             <h1>Dashboard</h1>
+
             <p>
-              Welcome back, {currentUser.name}! Viewing
-              analytics for {currentUser.company}
+              Welcome back,
+              {" "}
+              {currentUser.name}
+              {" "}
+              ! Viewing analytics for
+              {" "}
+              {currentUser.company}
             </p>
           </div>
 
@@ -184,218 +222,160 @@ function Dashboard() {
               }
             )}
           </div>
+
         </div>
 
-        {/* Stats */}
         <div className="stats-grid">
+
+          <div className="stat-card">
+            <h3>Current Plan</h3>
+
+            <h2>
+              {subscription?.plan ||
+                "FREE"}
+            </h2>
+
+            <span>
+              Active Subscription
+            </span>
+          </div>
 
           <div className="stat-card">
             <h3>Total Employees</h3>
             <h2>{stats.totalEmployees}</h2>
-            <span>Company workforce</span>
+            <span>Company Workforce</span>
           </div>
 
           <div className="stat-card">
             <h3>Active Employees</h3>
             <h2>{stats.activeEmployees}</h2>
-            <span>Currently active</span>
+            <span>Currently Active</span>
           </div>
 
           <div className="stat-card">
             <h3>Total Departments</h3>
             <h2>{stats.totalDepartments}</h2>
-            <span>Organization units</span>
-          </div>
-
-          <div className="stat-card">
-            <h3>Pending Requests</h3>
-            <h2>{stats.pendingRequests}</h2>
-            <span>Role change approvals</span>
+            <span>Organization Units</span>
           </div>
 
         </div>
 
-        {/* Analytics Lock */}
         {subscription &&
-          !subscription.analytics_access && (
-            <div className="analytics-locked">
-              <h2>
-                Analytics not available on your
-                plan
-              </h2>
+        !subscription.analytics_access ? (
 
-              <p>
-                Upgrade to Professional or
-                Enterprise in Subscription
-                Settings
-              </p>
-            </div>
-          )}
+          <div className="analytics-locked">
 
-        {/* Charts */}
-        <div className="charts-row">
-
-          <div className="chart-card">
             <h2>
-              Employee Distribution by Department
+              Analytics Not Available
             </h2>
 
-            <ResponsiveContainer
-              width="100%"
-              height={300}
-            >
-              <BarChart
-                data={departmentData}
-                layout="vertical"
-              >
-                <XAxis type="number" />
-                <YAxis
-                  dataKey="department"
-                  type="category"
-                />
-                <Tooltip />
-                <Bar
-                  dataKey="employees"
-                  fill="#2563eb"
-                  radius={[0, 8, 8, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+            <p>
+              Upgrade to Professional
+              or Enterprise Plan
+            </p>
+
           </div>
 
-          <div className="chart-card">
-            <h2>Employee Count by Role</h2>
+        ) : (
 
-            <ResponsiveContainer
-              width="100%"
-              height={300}
-            >
-              <BarChart data={roleData}>
-                <XAxis dataKey="role" />
-                <YAxis />
-                <Tooltip />
-                <Bar
-                  dataKey="count"
-                  fill="#7c3aed"
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          <>
+            <div className="charts-row">
 
-          <div className="chart-card">
-            <h2>Employee Status Overview</h2>
+              <div className="chart-card">
+                <h2>
+                  Employee Distribution by Department
+                </h2>
 
-            <ResponsiveContainer
-              width="100%"
-              height={300}
-            >
-              <PieChart>
-                <Pie
-                  data={statusData}
-                  dataKey="value"
-                  outerRadius={100}
-                  label
+                <ResponsiveContainer
+                  width="100%"
+                  height={300}
                 >
-                  {statusData.map(
-                    (entry, index) => (
-                      <Cell
-                        key={index}
-                        fill={
-                          COLORS[
-                            index %
-                              COLORS.length
-                          ]
-                        }
-                      />
-                    )
-                  )}
-                </Pie>
+                  <BarChart
+                    data={departmentData}
+                    layout="vertical"
+                  >
+                    <XAxis type="number" />
+                    <YAxis
+                      dataKey="department"
+                      type="category"
+                    />
+                    <Tooltip />
+                    <Bar
+                      dataKey="employees"
+                      fill="#2563eb"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
 
-                <Tooltip />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-        </div>
-
-        {/* Bottom Row */}
-        <div className="bottom-row">
-
-          <div className="chart-card attendance-card">
-            <h2>Attendance Analytics</h2>
-
-            <ResponsiveContainer
-              width="100%"
-              height={320}
-            >
-              <LineChart
-                data={attendanceData}
-              >
-                <CartesianGrid
-                  strokeDasharray="3 3"
-                />
-
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-
-                <Line
-                  type="monotone"
-                  dataKey="present"
-                  stroke="#10b981"
-                  strokeWidth={3}
-                />
-
-                <Line
-                  type="monotone"
-                  dataKey="absent"
-                  stroke="#ef4444"
-                  strokeWidth={3}
-                />
-
-                <Line
-                  type="monotone"
-                  dataKey="onLeave"
-                  stroke="#f59e0b"
-                  strokeWidth={3}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="chart-card recent-card">
-            <div className="recent-header">
-              <h2>Recent Employees</h2>
-              <button>View All</button>
-            </div>
-
-            {recentEmployees.map((emp) => (
-              <div
-                className="employee-row"
-                key={emp.id}
-              >
-                <div className="avatar">
-                  {emp.name
-                    .charAt(0)
-                    .toUpperCase()}
-                </div>
-
-                <div className="employee-info">
-                  <h4>{emp.name}</h4>
-                  <p>{emp.role}</p>
-                </div>
-
-                <div className="employee-meta">
-                  <p>{emp.department}</p>
-                  <small>{emp.joined}</small>
-                </div>
               </div>
-            ))}
-          </div>
 
-        </div>
+              <div className="chart-card">
+
+                <h2>
+                  Employee Count by Role
+                </h2>
+
+                <ResponsiveContainer
+                  width="100%"
+                  height={300}
+                >
+                  <BarChart data={roleData}>
+                    <XAxis dataKey="role" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar
+                      dataKey="count"
+                      fill="#7c3aed"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+
+              </div>
+
+              <div className="chart-card">
+
+                <h2>
+                  Employee Status Overview
+                </h2>
+
+                <ResponsiveContainer
+                  width="100%"
+                  height={300}
+                >
+                  <PieChart>
+
+                    <Pie
+                      data={statusData}
+                      dataKey="value"
+                      outerRadius={100}
+                      label
+                    >
+                      {statusData.map(
+                        (entry, index) => (
+                          <Cell
+                            key={index}
+                            fill={
+                              COLORS[
+                                index %
+                                COLORS.length
+                              ]
+                            }
+                          />
+                        )
+                      )}
+                    </Pie>
+
+                    <Tooltip />
+                    <Legend />
+
+                  </PieChart>
+                </ResponsiveContainer>
+
+              </div>
+
+            </div>
+          </>
+        )}
 
       </div>
     </>

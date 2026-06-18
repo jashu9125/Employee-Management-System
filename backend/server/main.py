@@ -14,6 +14,18 @@ from routes.employeeRoutes import (
     router as employee_router
 )
 
+from routes.subscriptionRoutes import (
+    router as subscription_router
+)
+
+from routes.securityRoutes import (
+    router as security_router
+)
+
+from models.SecurityAlert import (
+    SecurityAlert
+)
+
 
 app = FastAPI(
     title="Employee Management System"
@@ -40,6 +52,14 @@ app.include_router(
 
 app.include_router(
     employee_router
+)
+
+app.include_router(
+    subscription_router
+)
+
+app.include_router(
+    security_router
 )
 
 @app.get("/")

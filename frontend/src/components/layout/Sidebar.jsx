@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = ({
+  isOpen,
+  onClose
+}) => {
+
   const currentUser = JSON.parse(
-    localStorage.getItem("currentUser")
+    localStorage.getItem(
+      "currentUser"
+    )
   );
 
   return (
@@ -17,15 +23,22 @@ const Sidebar = ({ isOpen, onClose }) => {
 
       <aside
         className={`sidebar ${
-          isOpen ? "open" : ""
+          isOpen
+            ? "open"
+            : ""
         }`}
       >
+
         <div className="sidebar-header">
+
           <h3>Menu</h3>
 
-          <button onClick={onClose}>
+          <button
+            onClick={onClose}
+          >
             ✕
           </button>
+
         </div>
 
         <nav>
@@ -51,16 +64,29 @@ const Sidebar = ({ isOpen, onClose }) => {
             Members
           </Link>
 
-          {currentUser?.role === "admin" && (
-            <Link
-              to="/settings/subscription"
-              onClick={onClose}
-            >
-              Subscription
-            </Link>
+          {/* Admin Only */}
+
+          {currentUser?.role ===
+            "admin" && (
+            <>
+              <Link
+                to="/settings/subscription"
+                onClick={onClose}
+              >
+                Subscription
+              </Link>
+
+              <Link
+                to="/security"
+                onClick={onClose}
+              >
+                Security Monitoring
+              </Link>
+            </>
           )}
 
         </nav>
+
       </aside>
     </>
   );

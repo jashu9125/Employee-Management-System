@@ -33,13 +33,18 @@ export const getMembers = async () => {
 
   return data;
 };
-export const loginUser = async (email, password) => {
+export const loginUser = async (
+  email,
+  password
+) => {
+
   const response = await fetch(
-    "http://127.0.0.1:8000/api/users/login",
+    "http://localhost:8000/api/users/login",
     {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type":
+          "application/json",
       },
       body: JSON.stringify({
         email,
@@ -48,10 +53,16 @@ export const loginUser = async (email, password) => {
     }
   );
 
-  const data = await response.json();
+  const data =
+    await response.json();
 
-  if (!response.ok) {
-    throw new Error(data.detail);
+  if (
+    data.message ===
+    "Invalid Credentials"
+  ) {
+    throw new Error(
+      "Invalid Credentials"
+    );
   }
 
   return data;

@@ -25,8 +25,9 @@ import EditEmployee from "./pages/employees/EditEmployee";
 
 import Subscription from "./pages/billing/Subscription";
 
-import AdminRoute from "./routes/AdminRoute";
+import SecurityMonitoring from "./pages/security/SecurityMonitoring";
 
+import AdminRoute from "./routes/AdminRoute";
 
 function App() {
 
@@ -35,15 +36,34 @@ function App() {
 
   useEffect(() => {
 
-    const user =
+    const storedUser =
       localStorage.getItem(
         "currentUser"
       );
 
-    if (user) {
-      setCurrentUser(
-        JSON.parse(user)
-      );
+    if (
+      storedUser &&
+      storedUser !== "undefined"
+    ) {
+      try {
+
+        setCurrentUser(
+          JSON.parse(
+            storedUser
+          )
+        );
+
+      } catch (error) {
+
+        console.error(
+          "Invalid currentUser in localStorage",
+          error
+        );
+
+        localStorage.removeItem(
+          "currentUser"
+        );
+      }
     }
 
   }, []);
@@ -56,7 +76,9 @@ function App() {
         <Route
           path="/"
           element={
-            <Navigate to="/signup" />
+            <Navigate
+              to="/signup"
+            />
           }
         />
 
@@ -88,6 +110,8 @@ function App() {
               )
           }
         />
+
+       
 
         <Route
           path="/members"
@@ -148,27 +172,20 @@ function App() {
         <Route
           path="/settings/subscription"
           element={
-            currentUser?.role
-              ?.toLowerCase() ===
-            "admin"
-              ? (
-                <Subscription />
-              )
-              : (
-                <Navigate
-                  to="/dashboard"
-                />
-              )
+            <AdminRoute>
+              <Subscription />
+            </AdminRoute>
           }
         />
-<Route
-  path="/settings/subscription"
-  element={
-    <AdminRoute>
-      <Subscription />
-    </AdminRoute>
-  }
-/>
+
+        <Route
+          path="/security"
+          element={
+            <AdminRoute>
+              <SecurityMonitoring />
+            </AdminRoute>
+          }
+        />
 
       </Routes>
 
