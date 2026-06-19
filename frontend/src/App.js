@@ -14,13 +14,10 @@ import Signup from "./pages/auth/Signup";
 import Login from "./pages/auth/Login";
 
 import Dashboard from "./pages/dashboard/Dashboard";
-
 import Members from "./pages/members/Members";
 
 import EmployeeList from "./pages/employees/EmployeeList";
-
 import EmployeeDetails from "./pages/employees/EmployeeDetails";
-
 import EditEmployee from "./pages/employees/EditEmployee";
 
 import Subscription from "./pages/billing/Subscription";
@@ -56,7 +53,7 @@ function App() {
       } catch (error) {
 
         console.error(
-          "Invalid currentUser in localStorage",
+          "Invalid User",
           error
         );
 
@@ -73,6 +70,8 @@ function App() {
 
       <Routes>
 
+        {/* Default Route */}
+
         <Route
           path="/"
           element={
@@ -81,6 +80,8 @@ function App() {
             />
           }
         />
+
+        {/* Authentication */}
 
         <Route
           path="/signup"
@@ -98,6 +99,8 @@ function App() {
           }
         />
 
+        {/* Dashboard */}
+
         <Route
           path="/dashboard"
           element={
@@ -111,7 +114,7 @@ function App() {
           }
         />
 
-       
+        {/* Members */}
 
         <Route
           path="/members"
@@ -125,6 +128,8 @@ function App() {
               )
           }
         />
+
+        {/* Employees */}
 
         <Route
           path="/employees"
@@ -168,6 +173,8 @@ function App() {
               )
           }
         />
+
+        {/* Admin Routes */}
 
         <Route
           path="/settings/subscription"

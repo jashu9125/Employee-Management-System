@@ -11,7 +11,16 @@ router = APIRouter(
 )
 
 @router.get("/{company}")
-def get_alerts(company:str):
+def get_alerts(
+    company: str,
+    role: str
+):
+
+    if role.lower() != "admin":
+        return {
+            "message":
+            "Access Denied"
+        }
 
     db = SessionLocal()
 

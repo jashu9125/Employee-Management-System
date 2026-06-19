@@ -7,14 +7,15 @@ function SecurityMonitoring() {
   const [sidebarOpen, setSidebarOpen] =
     useState(false);
 
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] =
+    useState([]);
 
- const currentUser =
-  JSON.parse(
-    localStorage.getItem(
-      "currentUser"
-    ) || "{}"
-  );
+  const currentUser =
+    JSON.parse(
+      localStorage.getItem(
+        "currentUser"
+      ) || "{}"
+    );
 
   useEffect(() => {
     loadAlerts();
@@ -22,17 +23,35 @@ function SecurityMonitoring() {
 
   const loadAlerts = async () => {
     try {
-      const data = await getAlerts(
-        currentUser.company
+      const data =
+        await getAlerts(
+          currentUser.company,
+           currentUser.role
+        );
+
+      console.log(
+        "Security Alerts:",
+        data
       );
 
-      setAlerts(data || []);
+      setAlerts(
+        Array.isArray(data)
+          ? data
+          : []
+      );
     } catch (error) {
-      console.error(error);
+      console.error(
+        "Security Alerts Error:",
+        error
+      );
+
+      setAlerts([]);
     }
   };
 
-  const getRiskBadge = (level) => {
+  const getRiskBadge = (
+    level
+  ) => {
     if (level === "HIGH") {
       return "risk-high";
     }
@@ -44,44 +63,72 @@ function SecurityMonitoring() {
     return "risk-low";
   };
 
-  const totalAlerts = alerts.length;
+  const today =
+    new Date().toDateString();
+
+  const todaysAlerts =
+    alerts.filter(
+      (alert) =>
+        new Date(
+          alert.created_at
+        ).toDateString() ===
+        today
+    );
+
+  const totalAlerts =
+    todaysAlerts.length;
 
   const criticalAlerts =
     alerts.filter(
       (alert) =>
-        alert.risk_level === "HIGH"
+        alert.risk_level ===
+        "HIGH"
     ).length;
 
   const resolvedAlerts = 0;
 
   const openAlerts =
-    totalAlerts - resolvedAlerts;
+    totalAlerts -
+    resolvedAlerts;
 
   const userScores = {};
 
   alerts.forEach((alert) => {
-    if (!userScores[alert.user_email]) {
-      userScores[alert.user_email] = 0;
+    if (
+      !userScores[
+        alert.user_email
+      ]
+    ) {
+      userScores[
+        alert.user_email
+      ] = 0;
     }
 
-    userScores[alert.user_email] +=
-      alert.risk_score;
+    userScores[
+      alert.user_email
+    ] += alert.risk_score;
   });
 
-  const topRiskUsers = Object.entries(
-    userScores
-  )
-    .map(([email, score]) => ({
-      email,
-      score,
-      level:
-        score >= 60
-          ? "HIGH"
-          : score >= 30
-          ? "MEDIUM"
-          : "LOW",
-    }))
-    .sort((a, b) => b.score - a.score);
+  const topRiskUsers =
+    Object.entries(
+      userScores
+    )
+      .map(
+        ([email, score]) => ({
+          email,
+          score,
+          level:
+            score >= 60
+              ? "HIGH"
+              : score >= 30
+              ? "MEDIUM"
+              : "LOW",
+        })
+      )
+      .sort(
+        (a, b) =>
+          b.score - a.score
+      );
 
   return (
     <>
@@ -100,26 +147,26 @@ function SecurityMonitoring() {
 
       <div className="security-page">
 
-
         <div className="security-header">
           <h1>
             Security Monitoring
           </h1>
 
           <p>
-            Track alerts, risk
-            scores and recent
-            security events for
-            your organization.
+            Track alerts,
+            risk scores and
+            recent security
+            events for your
+            organization.
           </p>
         </div>
-
 
         <div className="security-stats">
 
           <div className="security-card">
             <h4>
-              Security Alerts Today
+              Security Alerts
+              Today
             </h4>
 
             <h2>
@@ -132,7 +179,9 @@ function SecurityMonitoring() {
           </div>
 
           <div className="security-card">
-            <h4>Open Alerts</h4>
+            <h4>
+              Open Alerts
+            </h4>
 
             <h2>
               {openAlerts}
@@ -167,15 +216,14 @@ function SecurityMonitoring() {
             </h2>
 
             <span>
-              Open critical issues
+              Open critical
+              issues
             </span>
           </div>
 
         </div>
 
         <div className="risk-grid">
-
-         
 
           <div className="risk-card">
 
@@ -186,19 +234,25 @@ function SecurityMonitoring() {
             {topRiskUsers.length ===
             0 ? (
               <p>
-                No risk users found
+                No risk users
+                found
               </p>
             ) : (
               topRiskUsers.map(
-                (user, index) => (
+                (
+                  user,
+                  index
+                ) => (
                   <div
-                    className="risk-user-row"
                     key={index}
+                    className="risk-user-row"
                   >
                     <div>
 
                       <h4>
-                        {user.email}
+                        {
+                          user.email
+                        }
                       </h4>
 
                       <small>
@@ -208,14 +262,15 @@ function SecurityMonitoring() {
                     </div>
 
                     <div
-                      className={
-                        getRiskBadge(
-                          user.level
-                        )
-                      }
+                      className={getRiskBadge(
+                        user.level
+                      )}
                     >
-                      {user.score}
+                      {
+                        user.score
+                      }
                     </div>
+
                   </div>
                 )
               )
@@ -226,7 +281,7 @@ function SecurityMonitoring() {
           <div className="risk-card">
 
             <h2>
-              Top Risk Companies
+              Top Risk Company
             </h2>
 
             <div className="risk-user-row">
@@ -240,15 +295,18 @@ function SecurityMonitoring() {
                 </h4>
 
                 <small>
-                  {topRiskUsers.length} users
-                  tracked
+                  {
+                    topRiskUsers.length
+                  }{" "}
+                  users tracked
                 </small>
 
               </div>
 
               <div
                 className={
-                  criticalAlerts > 0
+                  criticalAlerts >
+                  0
                     ? "risk-high"
                     : "risk-low"
                 }
@@ -273,13 +331,15 @@ function SecurityMonitoring() {
         <div className="events-card">
 
           <h2>
-            Recent Security Events
+            Recent Security
+            Events
           </h2>
 
-          {alerts.length === 0 ? (
+          {alerts.length ===
+          0 ? (
             <p>
-              No security events
-              found.
+              No security
+              events found.
             </p>
           ) : (
             alerts
@@ -305,8 +365,7 @@ function SecurityMonitoring() {
                       </h4>
 
                       <p>
-                        Failed login
-                        attempt for{" "}
+                        Event for{" "}
                         {
                           alert.user_email
                         }
@@ -323,11 +382,9 @@ function SecurityMonitoring() {
                       </small>
 
                       <span
-                        className={
-                          getRiskBadge(
-                            alert.risk_level
-                          )
-                        }
+                        className={getRiskBadge(
+                          alert.risk_level
+                        )}
                       >
                         {
                           alert.risk_level

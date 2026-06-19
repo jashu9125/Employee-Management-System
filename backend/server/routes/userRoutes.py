@@ -171,3 +171,28 @@ def failed_login(data: dict):
         "message":
         "Failed Login Recorded"
     }
+    
+@router.post(
+    "/unauthorized-access"
+)
+def unauthorized_access(
+    data: dict
+):
+
+    db = SessionLocal()
+
+    SecurityService.create_alert(
+        db,
+        email=data["email"],
+        company=data["company"],
+        event_type=
+        "UNAUTHORIZED_ACCESS",
+        score=15
+    )
+
+    db.close()
+
+    return {
+        "message":
+        "Alert Created"
+    }

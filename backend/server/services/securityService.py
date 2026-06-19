@@ -53,3 +53,19 @@ class SecurityService:
             )
             .all()
         )
+        
+@staticmethod
+def create_unauthorized_alert(
+    db,
+    email,
+    company
+):
+
+    return SecurityService.create_alert(
+        db,
+        email=email,
+        company=company,
+        event_type=
+        "UNAUTHORIZED_ACCESS",
+        score=15
+    )
