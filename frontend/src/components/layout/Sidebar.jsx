@@ -82,6 +82,13 @@ const Sidebar = ({
               >
                 Security Monitoring
               </Link>
+
+              <Link
+  to="/forecasting"
+  onClick={onClose}
+>
+  Demand Forecasting
+</Link>
             </>
           )}
 

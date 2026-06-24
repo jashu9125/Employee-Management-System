@@ -26,6 +26,15 @@ import SecurityMonitoring from "./pages/security/SecurityMonitoring";
 
 import AdminRoute from "./routes/AdminRoute";
 
+import DemandForecasting
+from "./pages/forecasting/DemandForecasting";
+
+import CategoryForecast
+from "./pages/forecasting/CategoryForecast";
+
+import ProductForecast
+from "./pages/forecasting/ProductForecast";
+
 function App() {
 
   const [currentUser, setCurrentUser] =
@@ -194,7 +203,36 @@ function App() {
           }
         />
 
+              <Route
+  path="/forecasting"
+  element={
+    currentUser
+      ? <DemandForecasting />
+      : <Navigate to="/login" />
+  }
+/>
+
+        <Route
+  path="/forecasting/category/:category"
+  element={
+    currentUser
+      ? <CategoryForecast />
+      : <Navigate to="/login" />
+  }
+/>
+
+      <Route
+  path="/forecasting/product/:product"
+  element={
+    currentUser
+      ? <ProductForecast />
+      : <Navigate to="/login" />
+  }
+/>
+
       </Routes>
+
+
 
     </BrowserRouter>
   );

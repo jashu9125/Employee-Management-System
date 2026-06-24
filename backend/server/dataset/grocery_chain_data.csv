@@ -1,0 +1,150 @@
+customer_id	store_name	transaction_date	aisle	product_name	quantity	unit_price	total_amount	discount_amount	final_amount	loyalty_points
+2824	GreenGrocer Plaza	26-08-2023	Produce	Pasta	2	7.46	14.92	0	14.92	377
+5506	ValuePlus Market	13-02-2024	Dairy	Cheese	1	1.85	1.85	3.41	-1.56	111
+4657	ValuePlus Market	23-11-2023	Bakery	Onions	4	7.38	29.52	4.04	25.48	301
+2679	SuperSave Central	13-01-2025	Snacks & Candy	Cereal	3	5.5	16.5	1.37	15.13	490
+9935	GreenGrocer Plaza	13-10-2023	Canned Goods	Orange Juice	5	8.66	43.3	1.5	41.8	22
+7912	Corner Grocery	31-08-2023	Dairy	Onions	3	25.04	75.12	1.77	73.35	316
+1488	GreenGrocer Plaza	18-10-2023	Produce	Ground Beef	3	29.56	88.68	2.52	86.16	437
+4582	City Fresh Store	03-02-2024	Health & Wellness	Orange Juice	2	11.73	23.46	0	23.46	107
+9279	GreenGrocer Plaza	16-11-2024	Household Items	Apples	5	22.13	110.65	11.07	99.58	83
+1434	QuickStop Market	15-10-2024	Health & Wellness	Onions	2	20.84	41.68	8.34	33.34	431
+4257	FreshMart Downtown	13-02-2025	Canned Goods	Tomatoes	3	2.91	8.73	1.75	6.98	467
+9928	City Fresh Store	27-06-2024	Snacks & Candy	Salmon	2	8.67	17.34	0	17.34	126
+4611	Corner Grocery	20-07-2024	Household Items	Tomatoes	3	7.35	22.05	4.02	18.03	70
+5557	GreenGrocer Plaza	26-04-2025	Meat & Seafood	Apples	4	18.29	73.16	4.98	68.18	197
+1106	ValuePlus Market	18-03-2025	Frozen Foods	Onions	1	20.72	20.72	0	20.72	58
+3615	MegaMart Westside	30-01-2025	Dairy	Rice	4	5.58	22.32	4.05	18.27	1
+7924	ValuePlus Market	27-04-2024	Dairy	Rice	5	18.65	93.25	18.65	74.6	78
+5552	ValuePlus Market	05-12-2023	Personal Care	Bananas	5	10.39	51.95	7.79	44.16	9
+4527	QuickStop Market	22-03-2025	Bakery	Milk	2	26.45	52.9	3.93	48.97	484
+6514	GreenGrocer Plaza	25-10-2023	Personal Care	Eggs	2	20.12	40.24	6.04	34.2	484
+2519	ValuePlus Market	28-05-2024	Household Items	Cheese	2	27.93	55.86	0	55.86	386
+2584	QuickStop Market	11-05-2024	Snacks & Candy	Orange Juice	4	27.08	108.32	21.66	86.66	231
+6635	FamilyFood Express	17-11-2024	Dairy	Cereal	1	18.05	18.05	1.28	16.77	117
+5333	FreshMart Downtown	24-04-2025	Bakery	Bread	1	25.92	25.92	3.89	22.03	36
+1711	City Fresh Store	23-02-2025	Bakery	Onions	2	21.97	43.94	8.79	35.15	451
+8527	City Fresh Store	26-09-2024	Snacks & Candy	Yogurt	1	3.8	3.8	0.38	3.42	220
+3045	Corner Grocery	23-07-2025	Beverages	Milk	1	2.75	2.75	1.99	0.76	372
+7201	FamilyFood Express	07-10-2023	Personal Care	Salmon	2	13.22	26.44	5.29	21.15	142
+5803	GreenGrocer Plaza	12-05-2025	Beverages	Onions	1	2.46	2.46	4.71	-2.25	276
+6925	FamilyFood Express	28-10-2024	Meat & Seafood	Cheese	4	14.95	59.8	1.66	58.14	442
+4150	FreshMart Downtown	04-02-2025	Snacks & Candy	Pasta	4	9.26	37.04	7.41	29.63	356
+2139	FamilyFood Express	11-09-2023	Frozen Foods	Yogurt	1	17.79	17.79	0	17.79	277
+4733	MegaMart Westside	29-03-2025	Produce	Milk	5	14.82	74.1	4.84	69.26	470
+5741	GreenGrocer Plaza	07-10-2023	Meat & Seafood	Bread	5	2.96	14.8	1.48	13.32	441
+4814	GreenGrocer Plaza	10-06-2025	Household Items	Ground Beef	5	18.23	91.15	9.12	82.03	317
+2654	ValuePlus Market	28-05-2024	Canned Goods	Pasta	2	20.41	40.82	6.12	34.7	160
+5554	Corner Grocery	24-07-2024	Meat & Seafood	Rice	4	10.16	40.64	2.83	37.81	384
+6977	GreenGrocer Plaza	11-12-2023	Dairy	Onions	2	15.66	31.32	4.52	26.8	67
+7065	MegaMart Westside	08-05-2024	Frozen Foods	Apples	4	25.17	100.68	4.94	95.74	360
+4432	ValuePlus Market	08-01-2025	Produce	Onions	3	28.01	84.03	12.6	71.43	53
+5374	GreenGrocer Plaza	02-02-2025	Dairy	Onions	2	8.89	17.78	0	17.78	309
+2169	MegaMart Westside	22-11-2024	Bakery	Pasta	5	15.16	75.8	3.54	72.26	463
+3803	QuickStop Market	24-09-2024	Produce	Bananas	3	23.35	70.05	14.01	56.04	326
+5010	City Fresh Store	11-12-2023	Personal Care	Cheese	5	1.27	6.35	1.14	5.21	38
+8573	MegaMart Westside	27-05-2024	Household Items	Onions	2	13.45	26.9	4.03	22.87	21
+5422	FreshMart Downtown	25-07-2025	Canned Goods	Yogurt	2	20.33	40.66	4	36.66	181
+4598	FamilyFood Express	19-01-2025	Meat & Seafood	Apples	4	1.71	6.84	0.68	6.16	377
+6313	FamilyFood Express	22-05-2025	Frozen Foods	Apples	1	12.08	12.08	2.42	9.66	19
+1916	FamilyFood Express	31-01-2024	Beverages	Orange Juice	3	24.79	74.37	14.87	59.5	446
+1525	FreshMart Downtown	23-04-2025	Health & Wellness	Yogurt	4	10.51	42.04	6.31	35.73	442
+6168	MegaMart Westside	13-06-2024	Health & Wellness	Carrots	4	20.7	82.8	1.46	81.34	431
+5386	QuickStop Market	27-09-2023	Meat & Seafood	Pasta	1	4.13	4.13	0	4.13	222
+4456	MegaMart Westside	16-07-2025	Snacks & Candy	Carrots	1	12.16	12.16	1.82	10.34	295
+6155	FreshMart Downtown	19-01-2024	Snacks & Candy	Bananas	5	27.83	139.15	20.87	118.28	275
+9179	Corner Grocery	09-06-2024	Dairy	Cereal	5	10.09	50.45	0	50.45	434
+8517	QuickStop Market	25-11-2023	Personal Care	Rice	4	10.45	41.8	1.51	40.29	356
+5339	Corner Grocery	23-11-2023	Health & Wellness	Tomatoes	2	18.84	37.68	4.33	33.35	154
+5040	QuickStop Market	07-03-2025	Frozen Foods	Yogurt	4	23.78	95.12	9.51	85.61	310
+9830	City Fresh Store	27-02-2024	Beverages	Yogurt	5	14.71	73.55	0	73.55	461
+8019	GreenGrocer Plaza	04-07-2025	Frozen Foods	Carrots	5	10.71	53.55	0	53.55	419
+7543	QuickStop Market	14-05-2024	Bakery	Yogurt	2	1.7	3.4	4.4	-1	125
+4593	GreenGrocer Plaza	22-11-2023	Beverages	Cheese	5	6.63	33.15	3.31	29.84	356
+9348	Corner Grocery	24-08-2024	Bakery	Eggs	1	26.88	26.88	2.69	24.19	440
+2489	FamilyFood Express	16-03-2025	Meat & Seafood	Carrots	4	2.45	9.8	0.98	8.82	127
+1771	SuperSave Central	05-06-2025	Beverages	Carrots	5	18.26	91.3	4.26	87.04	486
+2796	ValuePlus Market	03-12-2023	Snacks & Candy	Onions	4	27.01	108.04	10.8	97.24	380
+3621	QuickStop Market	13-04-2025	Bakery	Pasta	5	15.04	75.2	7.52	67.68	122
+7916	GreenGrocer Plaza	12-11-2024	Frozen Foods	Ground Beef	3	10.73	32.19	6.44	25.75	457
+2040	SuperSave Central	31-05-2024	Bakery	Tomatoes	2	21.48	42.96	4.3	38.66	32
+7252	MegaMart Westside	11-11-2024	Personal Care	Salmon	4	2.8	11.2	1.12	10.08	426
+8668	FreshMart Downtown	20-09-2024	Household Items	Tomatoes	4	1.16	4.64	0.46	4.18	180
+5119	Corner Grocery	09-10-2024	Personal Care	Onions	5	27.03	135.15	20.27	114.88	249
+1188	Corner Grocery	16-01-2025	Beverages	Bananas	4	10.74	42.96	0	42.96	347
+2876	SuperSave Central	17-01-2025	Beverages	Eggs	5	16.48	82.4	3.26	79.14	464
+9797	FreshMart Downtown	12-03-2025	Dairy	Cheese	2	26.13	52.26	7.84	44.42	93
+5371	Corner Grocery	25-03-2025	Canned Goods	Yogurt	4	10.47	41.88	6.28	35.6	389
+6573	Corner Grocery	01-11-2023	Frozen Foods	Bread	4	1.55	6.2	0.93	5.27	276
+5808	FamilyFood Express	09-07-2024	Health & Wellness	Bread	1	22.86	22.86	4.57	18.29	486
+3591	FreshMart Downtown	24-07-2024	Household Items	Eggs	2	4.65	9.3	4.79	4.51	342
+1053	City Fresh Store	17-02-2025	Frozen Foods	Orange Juice	2	18.56	37.12	7.42	29.7	493
+5315	QuickStop Market	29-08-2024	Dairy	Bananas	3	17.69	53.07	5.31	47.76	464
+3927	FamilyFood Express	04-09-2024	Dairy	Ground Beef	1	21.21	21.21	4.13	17.08	154
+2743	MegaMart Westside	13-06-2025	Personal Care	Cheese	3	2.99	8.97	4.4	4.57	331
+5889	City Fresh Store	21-05-2025	Dairy	Cheese	3	19.42	58.26	0	58.26	424
+9317	SuperSave Central	22-11-2024	Snacks & Candy	Apples	5	28.99	144.95	14.49	130.46	138
+4258	Corner Grocery	03-12-2023	Household Items	Pasta	3	25.69	77.07	11.56	65.51	425
+7126	City Fresh Store	21-03-2025	Bakery	Salmon	5	18.69	93.45	2.98	90.47	194
+3646	MegaMart Westside	28-09-2024	Meat & Seafood	Potatoes	2	11.28	22.56	3.38	19.18	132
+9689	QuickStop Market	20-07-2025	Personal Care	Bananas	5	28.48	142.4	0	142.4	43
+1009	Corner Grocery	14-11-2024	Beverages	Onions	2	21.02	42.04	4.2	37.84	330
+6310	FreshMart Downtown	20-08-2024	Dairy	Rice	2	12.72	25.44	0	25.44	124
+1319	MegaMart Westside	01-11-2023	Beverages	Onions	5	10.96	54.8	8.22	46.58	381
+6947	City Fresh Store	19-06-2025	Frozen Foods	Rice	3	7.68	23.04	3.46	19.58	369
+6038	GreenGrocer Plaza	08-02-2024	Personal Care	Apples	2	7.27	14.54	0	14.54	247
+1949	ValuePlus Market	10-02-2024	Household Items	Rice	1	25.14	25.14	3.77	21.37	151
+2290	SuperSave Central	12-10-2023	Frozen Foods	Bananas	5	4.66	23.3	2.17	21.13	23
+8962	SuperSave Central	01-05-2025	Health & Wellness	Potatoes	1	26.3	26.3	2.63	23.67	293
+2133	City Fresh Store	19-03-2025	Beverages	Cereal	2	28.99	57.98	4.29	53.69	129
+9727	Corner Grocery	23-03-2025	Beverages	Bread	5	19.24	96.2	19.24	76.96	27
+3060	QuickStop Market	14-11-2023	Dairy	Ground Beef	1	17.17	17.17	2.52	14.65	213
+8787	City Fresh Store	07-10-2024	Frozen Foods	Cheese	3	17.48	52.44	10.49	41.95	30
+3705	FamilyFood Express	28-02-2024	Frozen Foods	Bread	2	7.95	15.9	3.18	12.72	282
+9645	FreshMart Downtown	14-06-2025	Snacks & Candy	Salmon	5	14.62	73.1	10.96	62.14	16
+7932	QuickStop Market	18-01-2024	Beverages	Bread	2	27.78	55.56	5.56	50	403
+9835	GreenGrocer Plaza	15-03-2025	Personal Care	Ground Beef	2	27.33	54.66	1.24	53.42	423
+4295	QuickStop Market	10-02-2025	Household Items	Rice	4	4.6	18.4	0	18.4	352
+6107	Corner Grocery	11-06-2024	Frozen Foods	Carrots	5	15.31	76.55	7.66	68.89	41
+7118	MegaMart Westside	12-07-2024	Household Items	Pasta	1	3.64	3.64	0	3.64	492
+9479	QuickStop Market	22-07-2024	Household Items	Milk	2	14.63	29.26	4.39	24.87	333
+2982	SuperSave Central	15-02-2024	Household Items	Cheese	4	29.09	116.36	11.64	104.72	240
+4681	MegaMart Westside	25-09-2023	Canned Goods	Chicken Breast	2	10.55	21.1	3.17	17.93	355
+6539	Corner Grocery	23-08-2023	Personal Care	Milk	4	3.54	14.16	4.88	9.28	129
+4770	Corner Grocery	06-11-2024	Personal Care	Bananas	5	14.39	71.95	2.45	69.5	27
+4608	City Fresh Store	12-08-2023	Health & Wellness	Salmon	1	6.89	6.89	1.03	5.86	281
+2163	City Fresh Store	06-02-2025	Beverages	Chicken Breast	1	29.21	29.21	0	29.21	311
+1964	SuperSave Central	31-01-2024	Frozen Foods	Onions	1	17.01	17.01	2.85	14.16	47
+2104	GreenGrocer Plaza	10-07-2025	Health & Wellness	Eggs	4	28.04	112.16	11.22	100.94	149
+1514	City Fresh Store	04-06-2025	Beverages	Ground Beef	4	16.98	67.92	3.03	64.89	196
+6413	SuperSave Central	01-10-2023	Dairy	Pasta	4	10.85	43.4	2.13	41.27	403
+9423	QuickStop Market	07-02-2024	Household Items	Potatoes	2	13.94	27.88	4.18	23.7	247
+5562	ValuePlus Market	07-01-2025	Personal Care	Tomatoes	4	28.04	112.16	0	112.16	445
+8953	FamilyFood Express	20-01-2024	Household Items	Tomatoes	2	25.81	51.62	7.74	43.88	210
+9834	City Fresh Store	17-11-2023	Snacks & Candy	Tomatoes	2	15.35	30.7	4.86	25.84	18
+8744	MegaMart Westside	11-02-2024	Dairy	Salmon	1	16.24	16.24	0	16.24	233
+8749	SuperSave Central	25-04-2025	Snacks & Candy	Eggs	1	14.61	14.61	2.19	12.42	496
+7669	Corner Grocery	01-01-2024	Health & Wellness	Bread	3	25.71	77.13	11.57	65.56	439
+2545	City Fresh Store	21-10-2023	Personal Care	Milk	5	2.97	14.85	2.97	11.88	323
+8062	GreenGrocer Plaza	08-05-2024	Snacks & Candy	Chicken Breast	1	13.86	13.86	1.18	12.68	355
+7939	FreshMart Downtown	21-06-2024	Frozen Foods	Orange Juice	3	13.48	40.44	3.73	36.71	125
+8651	SuperSave Central	07-06-2025	Meat & Seafood	Apples	1	18.67	18.67	1.87	16.8	195
+1887	SuperSave Central	11-01-2025	Bakery	Salmon	3	14.32	42.96	4.3	38.66	341
+2612	QuickStop Market	23-09-2023	Health & Wellness	Onions	2	3.13	6.26	2.2	4.06	483
+7596	Corner Grocery	22-02-2025	Frozen Foods	Salmon	3	6.77	20.31	1.95	18.36	196
+6559	MegaMart Westside	19-04-2025	Household Items	Rice	3	1.63	4.89	0.73	4.16	424
+2790	FreshMart Downtown	16-02-2024	Household Items	Milk	5	22.6	113	22.6	90.4	426
+4139	MegaMart Westside	01-01-2024	Bakery	Yogurt	5	8.26	41.3	0	41.3	386
+9786	GreenGrocer Plaza	20-07-2024	Health & Wellness	Milk	3	23.86	71.58	0	71.58	17
+3296	SuperSave Central	29-06-2024	Dairy	Rice	3	22.67	68.01	13.6	54.41	89
+4006	ValuePlus Market	10-03-2024	Canned Goods	Carrots	5	27.48	137.4	20.61	116.79	425
+8579	City Fresh Store	17-02-2024	Frozen Foods	Cereal	1	14.57	14.57	2.91	11.66	38
+2235	Corner Grocery	16-07-2024	Personal Care	Orange Juice	1	23.92	23.92	1.49	22.43	7
+2604	MegaMart Westside	15-09-2023	Health & Wellness	Pasta	5	12.04	60.2	3.7	56.5	326
+9856	City Fresh Store	17-05-2025	Produce	Onions	3	27.53	82.59	0	82.59	113
+1241	City Fresh Store	18-10-2023	Frozen Foods	Cheese	1	5.04	5.04	0.76	4.28	484
+4872	City Fresh Store	14-12-2023	Dairy	Chicken Breast	2	26.72	53.44	5.34	48.1	69
+7658	MegaMart Westside	18-08-2024	Health & Wellness	Onions	4	18.02	72.08	7.21	64.87	372
+8886	GreenGrocer Plaza	20-01-2024	Beverages	Cheese	3	1.94	5.82	0.58	5.24	189
+7570	City Fresh Store	07-07-2025	Bakery	Orange Juice	1	29.44	29.44	2.59	26.85	188
+1960	FamilyFood Express	12-12-2023	Dairy	Salmon	1	20.21	20.21	4.15	16.06	328
